@@ -43,8 +43,11 @@ Lo primero antes de establecer la relacion con el router vecino, cada router deb
 ![](/Imagenes_TP/Webp.net-gifmaker%20(1).gif "Estados por los que van pasando los routers")
 
 -   Antes de iniciar el estado *init* en segundo router, este hara unos chequeos de requerimientos:
-    -   Area ID
-    -   Subnet
-    -   Intervalo de Hello y muerte
-    -   Autentificacion
-    -
+    -   Area ID. El ID de area tiene que ser igual, esto se usara cuando se escala el OSPF
+    -   Subnet. Las conecciones entre los routers tienen que estar en la misma subnet
+    -   Intervalo de Hello y Dead. Los tiempos de Hello y Dead tiene que ser iguales en ambos routers
+    -   Autentificacion. La autentificacion debe ser la misma si esta esta siendo utilizada
+    -   Bandera del area stub. Esta bandera debe ser igual en ambos
+    -   RID unica. La ID no puede repetirse
+
+
