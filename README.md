@@ -40,7 +40,7 @@ Lo primero antes de establecer la relacion con el router vecino, cada router deb
 
 -   Una vez que OSPF esta configurado y tenemos las **RID's**, los routers intentan buscar potenciales vecinos enviando un *Hello* conteniendo informacion importante como el RID de emisor y la lista de vecinos. Este mensaje de saludo tambien sirve para avisar a los vecinos que siguen activos. 
 
-![](/Imagenes_TP/Webp.net-gifmaker(1).gif "Estados por los que van pasando los routers")
+![](/Imagenes_TP/Webp.net-gifmaker%20(1).gif "Estados por los que van pasando los routers")
 
 -   Antes de iniciar el estado *init* en segundo router, este hara unos chequeos de requerimientos:
     -   Area ID
