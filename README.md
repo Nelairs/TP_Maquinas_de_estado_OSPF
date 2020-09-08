@@ -50,4 +50,20 @@ Lo primero antes de establecer la relacion con el router vecino, cada router deb
     -   Bandera del area stub. Esta bandera debe ser igual en ambos
     -   RID unica. La ID no puede repetirse
 
+-   Despues del estado **2-way** mostrado anteriormente viene el estado **EXSTART**, pero antes del mismo hay que ver los Router designados y los routers designados de back up o **DRs** y **BDRs** por sus siglas en ingles.
+    
+    -Estos routers son para que al enviar informacion no se sature la lineas y funcionan de la siguiente manera.
+    
+-   Armamos una red de seis routers, al no tener **DR** y **BDR** estos se hacen vecinos entre todos. Al caerse uno de los links, este es informado a todos los demas, pero cuando uno recibe, a su vez avisa a sus vecinos, y asi todos se avisan entre todos ya que estan todos escuchando lo que envian sus vecinos y estos retransmitiendo el mensaje, esto hace que la red se sature con mensajes.
 
+![](/Imagenes_TP/Webp.net-gifmaker%20(2).gif "Network con 6 routers y ningun **DR**")
+
+-   Ahora si esta red tiene **DR** y **BDR**, los routers solo se haran *full neighbours* con los **DRs** y **BDRs** haciendo que solo hagan caso a los updates de estos mismos, mientras los demas se mantendran en estado **2-Way**. Los **DR** y **BDR** son seleccionados por la prioridad OSPF mas alta que por defecto es uno, esta puede ser cambiada para influenciar la eleccion. Ahora si la prioridad se encuentra igual en 2 o más routers, la eleccion es basada en el **RID** mas alto.
+
+![](/Imagenes_TP/Webp.net-gifmaker%20(3).gif "Network con 6 routers y **DR**")
+
+### Estado Exchange
+
+-   Luego de que empieze el estado EXCHANGE, los routers entran en estado EXSTART. En este punto se seleccionan un Slave y un Master basados en la **RID**, el MASTER controlara la secuencia de numeros y empezara el proceso EXCHANGE.
+-   Ahora se pasa al estado EXCHANGE, los routers se envian las listas de **LSAs** siendo este proceso Database Description **DBD**
+-   Despues del **DBD** se pasa al LOADING state donde cada router lista a traves del **DBD** y pediran cualquier informacion que no tengan en su **DB**, esto es hecho de esta manera para que evitar loops de querys de informacion.
